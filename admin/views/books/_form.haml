@@ -1,0 +1,34 @@
+.group
+  =f.label :library_id
+  =f.error_message_on :library_id
+  =f.select(:library_id, :collection => @libraries, :fields => [:street, :id])
+  %span.description Ex: a simple text
+
+.group
+  =f.label :title
+  =f.error_message_on :title
+  =f.text_field :title, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :author
+  =f.error_message_on :author
+  =f.text_field :author, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :added
+  =f.error_message_on :added
+  =f.text_field :added, :class => :text_field
+  %span.description Ex: a simple text
+
+.group
+  =f.label :in
+  =f.error_message_on :in
+  =f.check_box :in, :class => :check_box
+  %span.description Ex: a simple text
+
+
+.group.navform.wat-cf
+  =f.submit pat(:save), :class => :button
+  =f.submit pat(:cancel), :onclick => "window.location='#{url(:books, :index)}';return false", :class => :button

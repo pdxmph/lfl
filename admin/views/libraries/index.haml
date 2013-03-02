@@ -1,0 +1,31 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active=link_to pat(:list), url(:libraries, :index)
+      %li=link_to pat(:new), url(:libraries, :new)
+  .content
+    %h2.title
+      =pat(:all)
+      =mt(:libraries)
+    .inner
+      %table.table
+        %tr
+          %th.first=mat(:library, :id)
+          %th=mat(:library, :street)
+          %th=mat(:library, :created_at)
+          %th=mat(:library, :updated_at)
+          %th.last="&nbsp;"
+        -@libraries.each do |library|
+          %tr
+            %td.first=library.id
+            %td=library.street
+            %td=library.created_at
+            %td=library.updated_at
+            %td.last
+              =button_to pat(:edit), url(:libraries, :edit, :id => library.id), :method => :get, :class => :button_to
+              ="|"
+              =button_to pat(:delete), url(:libraries, :destroy, :id => library.id), :method => :delete, :class => :button_to, :onsubmit => "return confirm('#{pat(:confirm)}')"
+      .actions-bar.wat-cf
+        .actions="&nbsp;"
+
+-content_for :sidebar, partial("base/sidebar")
