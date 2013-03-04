@@ -10,4 +10,4 @@
       %tr  
         %td=book.title
         %td=book.author
-        %td &nbsp;&nbsp;2013-02-03
+        %td=book.created_at.strftime("%B %d, %Y")
