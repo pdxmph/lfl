@@ -1,3 +1,8 @@
-%h1 Little Free Libraries List
--@libraries.each do |library|
-    %li="#{library.street}"
+%h1 Little Free Libraries Around Lents
+
+%table
+  %tbody
+    -@libraries.each do |library|
+      %tr
+        %td= link_to(library.street, "/library/#{library.id}")
+        %td

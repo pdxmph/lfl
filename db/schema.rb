@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 3) do
     t.string   "title"
     t.string   "author"
     t.date     "added"
-    t.boolean  "in"
+    t.boolean  "in_stock"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -1,3 +1,13 @@
-%h1="Library at #{@library.street}"
--@books.each do |book|
-    %li="#{book.title} by #{book.author}"
+%h2="Library at #{@library.street}"
+
+%table{:class => 'table'} 
+  %thead
+    %th Title
+    %th Author
+    %th Added
+    %tbody
+    -@books.each do |book|
+      %tr  
+        %td=book.title
+        %td=book.author
+        %td &nbsp;&nbsp;2013-02-03
