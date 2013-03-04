@@ -1,7 +1,16 @@
 Lfl.controllers :application do
-  get :index, :map => "/" do
-    @libraries = Library.all
-    render 'application/index'
+
+# Once we have more than one library:
+#  get :index, :map => "/" do
+#    @libraries = Library.all
+#    render 'application/index'
+#  end
+
+# While it's just us:
+  get :index, :map => "/" do 
+    @library = Library.find(1)
+    @books = @library.books.find(:all, :order => "title ASC", :conditions => ['in_stock = ?',1])
+    render 'libraries/inventory'
   end
 
   get :about, :map => "/about" do
