@@ -4,10 +4,8 @@
   %thead
     %th In 
     %th Title
-    %th Added
     %tbody
     -@books.each do |book|
       %tr
         %td &#9634;
         %td=book.title
-        %td=book.created_at.strftime("%B %d, %Y")
