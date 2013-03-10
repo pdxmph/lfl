@@ -1,5 +1,4 @@
 Lfl.controllers :application do
-
 # Once we have more than one library:
 #  get :index, :map => "/" do
 #    @libraries = Library.all
@@ -9,7 +8,7 @@ Lfl.controllers :application do
 # While it's just us:
   get :index, :map => "/" do 
     @library = Library.find(1)
-    @books = @library.books.find(:all, :order => "title ASC", :conditions => ['in_stock = ?',1])
+    @books = @library.books.find(:all, :order => "title ASC", :conditions => ['in_stock = ?',true])
     render 'libraries/inventory'
   end
 
