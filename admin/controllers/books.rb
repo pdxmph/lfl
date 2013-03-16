@@ -1,7 +1,7 @@
 Admin.controllers :books do
 
   get :index do
-    @books = Book.all
+    @books = Book.all(:order => "in_stock DESC")
     render 'books/index'
   end
 
@@ -15,7 +15,7 @@ Admin.controllers :books do
     @book = Book.new(params[:book])
     if @book.save
       flash[:notice] = 'Book was successfully created.'
-      redirect url(:books, :edit, :id => @book.id)
+      redirect url(:books, :index)
     else
       render 'books/new'
     end
@@ -30,7 +30,7 @@ Admin.controllers :books do
     @book = Book.find(params[:id])
     if @book.update_attributes(params[:book])
       flash[:notice] = 'Book was successfully updated.'
-      redirect url(:books, :edit, :id => @book.id)
+      redirect url(:books, :index)
     else
       render 'books/edit'
     end
