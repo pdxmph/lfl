@@ -23,4 +23,10 @@ Lfl.controllers :application do
   get :map, :map => "/map" do
     render 'application/map'
   end
+
+  get :plans, :map => "/plans" do
+    render 'application/plans'
+  end
+
+
 end
