@@ -1,5 +1,6 @@
 %h2="Library at #{@library.street}"
 
+
 %table{:class => 'table'}
   %thead
     %th Title
@@ -7,13 +8,12 @@
     %th Added
     %tbody
     -@books.each do |book|
-      -if book.created_at > (Date.today - 7.days)
-        %tr{:class => "info"}
-          %td=book.title
-          %td=book.author
-          %td=book.created_at.strftime("%B %d, %Y")
-      -else
-        %tr
-          %td=book.title
-          %td=book.author
-          %td=book.created_at.strftime("%B %d, %Y")
+      %tr
+        %td
+          "#{book.title}"
+          - if book.created_at > (Date.today - 7.days)
+            %i{:class => 'icon-plus-sign', :title => 'New this week'}
+          - if book.donated == true
+            %i{:class => 'icon-gift', :title => "Donated" }
+        %td=book.author
+        %td=book.created_at.strftime("%B %d, %Y")
