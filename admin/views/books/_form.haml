@@ -2,32 +2,35 @@
   =f.label :library_id
   =f.error_message_on :library_id
   =f.select(:library_id, :collection => @libraries, :fields => [:street, :id])
-  %span.description Ex: a simple text
 
 .group
   =f.label :title
   =f.error_message_on :title
   =f.text_field :title, :class => :text_field
-  %span.description Ex: a simple text
+  %span.description Ex: Handmaid's Tale, The
 
 .group
   =f.label :author
   =f.error_message_on :author
   =f.text_field :author, :class => :text_field
-  %span.description Ex: a simple text
+  %span.description Ex: Atwood, Margaret
 
 .group
   =f.label :added
   =f.error_message_on :added
   =f.text_field :added, :class => :text_field
-  %span.description Ex: a simple text
+  %span.description Ex: a 2013-03-10
 
 .group
   =f.label :in
   =f.error_message_on :in_stock
   =f.check_box :in_stock, :class => :check_box
-  %span.description Ex: a simple text
 
+
+.group
+  =f.label :donated
+  =f.error_message_on :donated
+  =f.check_box :donated, :class => :check_box
 
 .group.navform.wat-cf
   =f.submit pat(:save), :class => :button

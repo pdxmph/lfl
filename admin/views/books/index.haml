@@ -18,6 +18,7 @@
           %th=mat(:book, :in_stock)
           %th=mat(:book, :created_at)
           %th=mat(:book, :updated_at)
+          %th=mat(:book, :donated)
           %th.last="&nbsp;"
         -@books.each do |book|
           %tr
@@ -29,6 +30,7 @@
             %td=book.in_stock
             %td=book.created_at
             %td=book.updated_at
+            %td=book.donated
             %td.last
               =button_to pat(:edit), url(:books, :edit, :id => book.id), :method => :get, :class => :button_to
               ="|"
